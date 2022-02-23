@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	filename := flag.String("file", "ex4.html", "the html file to parse for links")
+	filename := flag.String("file", "ex3.html", "the html file to parse for links")
 	flag.Parse()
 	f, err := os.Open(*filename)
 	if err != nil {

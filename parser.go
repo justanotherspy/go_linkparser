@@ -1,7 +1,6 @@
 package linkparser
 
 import (
-	"fmt"
 	"io"
 	"strings"
 
@@ -16,7 +15,7 @@ func Parse(r io.Reader) ([]Link, error){
 	}
 	nodes := linkNodes(doc)
 	for _, node := range nodes {
-		fmt.Println(node)
+		// fmt.Println(node)
 		links = append(links, buildLink(node))
 	}
 	return links, nil
@@ -43,7 +42,7 @@ func text(n *html.Node) string {
 	}
 	var ret string
 	for c := n.FirstChild; c != nil; c = c.NextSibling {
-		ret += text(c) + " "
+		ret += text(c)
 	}
 	return strings.Join(strings.Fields(ret), " ")
 }
